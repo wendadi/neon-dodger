@@ -165,6 +165,54 @@ p {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
+#high-scores {
+    margin-top: 35px;
+    background: rgba(10, 10, 12, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 15px 30px;
+    width: 85%;
+    max-width: 250px;
+    z-index: 10;
+}
+
+#high-scores h3 {
+    text-align: center;
+    color: #00ffff;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+#score-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#score-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#score-list li:last-child {
+    margin-bottom: 0;
+}
+
+#score-list li span:first-child {
+    color: #00ffff;
+}
+
+#score-list li small {
+    color: #aaaaaa;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
 button {
     position: relative;
     background: linear-gradient(135deg, #00ffff, #0088ff);

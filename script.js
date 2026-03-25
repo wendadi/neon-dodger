@@ -7,6 +7,9 @@ const finalScoreDisplay = document.getElementById('final-score');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 const diffBtns = document.querySelectorAll('.diff-btn');
+const scoreList = document.getElementById('score-list');
+
+let highScores = JSON.parse(localStorage.getItem('neon_dodger_scores')) || [];
 
 let selectedDifficulty = 'easy';
 
@@ -253,10 +256,44 @@ function checkCollision(p, o) {
     return dist < (p.radius + o.radius * 0.65); // Slightly forgiving hitbox
 }
 
+function updateHighScoresUI() {
+    if (!scoreList) return;
+    scoreList.innerHTML = '';
+    if (highScores.length === 0) {
+        scoreList.innerHTML = '<li><span style="width:100%;text-align:center;color:#888;">暂无记录</span></li>';
+        return;
+    }
+    highScores.forEach((s, index) => {
+        const li = document.createElement('li');
+        const scoreVal = typeof s === 'object' ? s.score : s;
+        const diffStr = typeof s === 'object' ? s.diff : '简';
+        li.innerHTML = `<span>#${index + 1} <small>(${diffStr})</small></span> <span>${scoreVal}</span>`;
+        scoreList.appendChild(li);
+    });
+}
+
+function saveScore() {
+    const finalS = Math.floor(score);
+    if(finalS > 0) {
+        const diffLabels = { 'easy': '简', 'medium': '中', 'hard': '难' };
+        highScores.push({ score: finalS, diff: diffLabels[selectedDifficulty] || '简' });
+        highScores.sort((a, b) => {
+            const valA = typeof a === 'object' ? a.score : a;
+            const valB = typeof b === 'object' ? b.score : b;
+            return valB - valA;
+        });
+        highScores = highScores.slice(0, 3);
+        localStorage.setItem('neon_dodger_scores', JSON.stringify(highScores));
+    }
+    updateHighScoresUI();
+}
+
 function gameOver() {
     isPlaying = false;
     createExplosion(player.x, player.y, '0, 255, 255', 50); // Player explosion
     scoreDisplay.classList.remove('visible');
+    
+    saveScore();
     
     if ("vibrate" in navigator) {
         try { navigator.vibrate([50, 50, 80]); } catch(e){}
@@ -400,3 +437,4 @@ function startGame() {
 
 resize();
 drawBackground(); 
+updateHighScoresUI();
