@@ -6,6 +6,17 @@ const scoreDisplay = document.getElementById('score-display');
 const finalScoreDisplay = document.getElementById('final-score');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
+const diffBtns = document.querySelectorAll('.diff-btn');
+
+let selectedDifficulty = 'easy';
+
+diffBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        diffBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedDifficulty = btn.dataset.diff;
+    });
+});
 
 let width, height;
 let isPlaying = false;
@@ -20,9 +31,9 @@ let particles = [];
 
 // Game Settings
 const playerRadius = 14;
-const baseSpeed = 5;
+let baseSpeed = 5;
 let currentSpeed = baseSpeed;
-const spawnRateStart = 50; // frames
+let spawnRateStart = 50; // frames
 let currentSpawnRate = spawnRateStart;
 
 // Colors
@@ -174,6 +185,17 @@ class Particle {
 }
 
 function initGame() {
+    if (selectedDifficulty === 'easy') {
+        baseSpeed = 4.5;
+        spawnRateStart = 55;
+    } else if (selectedDifficulty === 'medium') {
+        baseSpeed = 6.5;
+        spawnRateStart = 40;
+    } else if (selectedDifficulty === 'hard') {
+        baseSpeed = 9.0;
+        spawnRateStart = 28;
+    }
+
     player = new Player();
     obstacles = [];
     particles = [];

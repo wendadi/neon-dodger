@@ -127,10 +127,42 @@ h2 {
 p {
     color: #d0d0d0;
     font-size: 1.1rem;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 600;
+}
+
+.difficulty-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    z-index: 10;
+}
+
+.diff-btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    color: #00ffff;
+    box-shadow: none;
+    border-radius: 20px;
+}
+
+.diff-btn::before {
+    display: none;
+}
+
+.diff-btn:hover {
+    background: rgba(0, 255, 255, 0.15);
+}
+
+.diff-btn.active {
+    background: rgba(0, 255, 255, 0.25);
+    border-color: #00ffff;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
 button {
