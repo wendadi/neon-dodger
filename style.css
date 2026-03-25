@@ -105,6 +105,7 @@ h1 {
     margin-bottom: 25px;
     background: linear-gradient(135deg, #00ffff, #0066ff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.4));
     animation: float 4s ease-in-out infinite;
