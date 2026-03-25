@@ -1,29 +1,27 @@
-# Neon Dodger 🎮
+# 霓虹躲避 (Neon Dodger) 🎮
 
-A premium, fast-paced casual HTML5 game built for web browsers (perfect for both desktop and mobile). Perfect for quick entertainment breaks.
+一款为浏览器（完美适配手机与电脑）打造的高端、快节奏 H5 休闲游戏。非常适合用来在工作间隙放松。
 
-## 🌟 Features
-- **Zero dependencies:** Pure HTML, CSS, and Vanilla JavaScript. Just open `index.html` to play!
-- **Mobile First:** Smooth touch/swipe controls optimized for smartphones.
-- **Dynamic Graphics:** Stunning neon aesthetics, glassmorphism UI, particle explosions, and smooth canvas animations.
-- **Escalating Difficulty:** The game progressively speeds up and spawns more obstacles as you survive longer.
+## 🌟 游戏特色
+- **零依赖:** 纯原生 HTML、CSS 和 JavaScript 编写，双击 `index.html` 即开即玩！
+- **移动端优先:** 丝滑的拖拽滑屏手势，完美适配智能手机。
+- **高级视效:** 令人惊艳的霓虹发光美学、毛玻璃 UI（Glassmorphism）、粒子爆炸视效以及由于 Canvas 加持的流畅运行。
+- **渐进式难度:** 随着游戏进行会自动加快整体速度并密集生成障碍，极其考验反应。
 
-## 🕹️ How to Play
-- **Controls:** Tap and hold (or click and drag) your glowing blue orb to move it left and right.
-- **Objective:** Dodge the falling red stars for as long as possible.
-- **Score:** Survive longer to earn a higher score.
+## 🕹️ 怎么玩
+- **操作:** 手机端按住屏幕左右拖动（电脑端鼠标拖拽）发出蓝色荧光的小球。
+- **目标:** 不断躲避从上方掉落的红色星星。
+- **得分:** 坚持不被撞击的时间越久，你的得分就越高！
 
-## 🚀 Getting Started
-Simply double click on `index.html` in your browser to start playing.
+## 🚀 启动指引
+直接在浏览器里打开 `index.html` 就可以开始玩啦！
 
-If you want to play on your mobile phone while hosting from your computer, you can run a local server:
-
+如果你想用电脑作为服务器，并在手机局域网下测试，可以这么做：
 ```bash
 python3 -m http.server 8000
 ```
-Then navigate to `http://<your-computer-ip>:8000` on your phone's browser.
+然后在手机同一个 Wi-Fi 环境下的浏览器，输入你电脑的本地 IP 地址访问： `http://<电脑的IP地址>:8000`
 
-## 🛠️ Stack
-- HTML5 Canvas for the game rendering logic.
-- CSS3 for styling and UI overlays.
-- Modern JavaScript (ES6) for the game engine and physics.
+## 🛠️ 技术栈
+- 渲染层：HTML5 Canvas
+- 交互与 UI：Vanilla JavaScript & CSS3 (Backdrop Filter)
